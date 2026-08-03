@@ -1,15 +1,15 @@
--- GitHub Файл: ui.lua (Интерфейс Windows XP)
+-- интерфейс
 local TweenService = game:GetService("TweenService")
 local UserInputService = game:GetService("UserInputService")
 local playerGui = game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
 
--- Создаем ScreenGui
+-- screengui
 local screenGui = Instance.new("ScreenGui")
 screenGui.Name = "WindowsXP_GithubGui"
 screenGui.ResetOnSpawn = false
 screenGui.Parent = playerGui
 
--- Главное окно
+-- главное окно
 local window = Instance.new("Frame")
 window.Size = UDim2.new(0, 420, 0, 360)
 window.Position = UDim2.new(0.5, -210, 0.5, -180)
@@ -24,7 +24,7 @@ border.Color = Color3.fromRGB(0, 84, 227)
 border.Thickness = 3
 border.Parent = window
 
--- Синяя шапка (Title Bar)
+-- заголовок окна
 local titleBar = Instance.new("Frame")
 titleBar.Size = UDim2.new(1, 0, 0, 30)
 titleBar.BackgroundColor3 = Color3.fromRGB(0, 84, 227)
@@ -41,7 +41,7 @@ titleText.TextSize = 16
 titleText.TextXAlignment = Enum.TextXAlignment.Left
 titleText.Parent = titleBar
 
--- Кнопки Х и _
+-- свернуть и закрыть
 local closeButton = Instance.new("TextButton")
 closeButton.Size = UDim2.new(0, 22, 0, 22)
 closeButton.Position = UDim2.new(1, -26, 0.5, -11)
@@ -62,7 +62,7 @@ minimizeButton.Font = Enum.Font.SourceSansBold
 minimizeButton.Parent = titleBar
 Instance.new("UICorner", minimizeButton)
 
--- Белый контент
+-- белый контент
 local contentFrame = Instance.new("Frame")
 contentFrame.Size = UDim2.new(1, -12, 1, -42)
 contentFrame.Position = UDim2.new(0, 6, 0, 36)
@@ -78,7 +78,7 @@ playerCategoryButton.Font = Enum.Font.SourceSansBold
 playerCategoryButton.TextSize = 16
 playerCategoryButton.Parent = contentFrame
 
--- Настройки ввода скорости
+-- настройки ввода скорости
 local settingsFrame = Instance.new("Frame")
 settingsFrame.Size = UDim2.new(1, -20, 0, 120)
 settingsFrame.Position = UDim2.new(0, 10, 0, 45)
@@ -117,7 +117,7 @@ applyButton.Text = "Apply Settings"
 applyButton.Font = Enum.Font.SourceSansBold
 applyButton.Parent = settingsFrame
 
--- Передаем данные в глобальную таблицу _G при клике
+-- передача данных при _G клике
 applyButton.MouseButton1Click:Connect(function()
 	if _G.WindowsXP_Share then
 		_G.WindowsXP_Share.CurrentSpeed = tonumber(speedInput.Text) or 16
@@ -126,7 +126,7 @@ applyButton.MouseButton1Click:Connect(function()
 	end
 end)
 
--- Создание чит-кнопок
+-- кнопки для админки
 local cheatsFrame = Instance.new("Frame")
 cheatsFrame.Size = UDim2.new(1, -20, 0, 130)
 cheatsFrame.Position = UDim2.new(0, 10, 0, 170)
@@ -146,7 +146,7 @@ local function createCheatButton(gKey, text, pos)
 	local state = false
 	btn.MouseButton1Click:Connect(function()
 		state = not state
-		btn.Text = text .. (state and ": ON" or ": OFF")
+	в	btn.Text = text .. (state and ": ON" or ": OFF")
 		btn.BackgroundColor3 = state and Color3.fromRGB(190, 220, 190) or Color3.fromRGB(236, 233, 216)
 		if _G.WindowsXP_Share then
 			_G.WindowsXP_Share[gKey] = state
@@ -159,7 +159,7 @@ createCheatButton("InfJumpEnabled", "Infinite Jump", UDim2.new(0, 200, 0, 10))
 createCheatButton("RagdollEnabled", "Ragdoll (Труп)", UDim2.new(0, 10, 0, 50))
 createCheatButton("PhantomActive", "Phantom (Фантом)", UDim2.new(0, 200, 0, 50))
 
--- Закрытие и сворачивание окна
+-- закрытие и сворачивание окна
 closeButton.MouseButton1Click:Connect(function() 
 	if _G.WindowsXP_Share then _G.WindowsXP_Share.PhantomActive = false end
 	screenGui:Destroy() 
@@ -172,7 +172,7 @@ minimizeButton.MouseButton1Click:Connect(function()
 	TweenService:Create(window, TweenInfo.new(0.2), {Size = isMinimized and UDim2.new(0, 420, 0, 30) or UDim2.new(0, 420, 0, 360)}):Play()
 end)
 
--- Перетаскивание (Drag & Drop)
+-- перетаскивание окна
 local dragging, dragStart, startPos
 titleBar.InputBegan:Connect(function(input)
 	if input.UserInputType == Enum.UserInputType.MouseButton1 then
