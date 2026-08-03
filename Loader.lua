@@ -20,7 +20,7 @@ local function loadScript(url)
 end
 
 -- КАЛтент админки
-local URL_LOGIC = "https://githubusercontent.com"
+local URL_LOGIC = "https://github.com/pilgor1337goat432/dryftugytdutfyig/commit/2e370069b62075e21328e60e1f5720375d6713a2"
 local URL_UI = "https://githubusercontent.com"
 
 loadScript(URL_LOGIC)
