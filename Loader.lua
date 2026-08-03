@@ -20,7 +20,7 @@ local function loadScript(url)
 end
 
 -- КАЛтент админки
-local URL_LOGIC = "https://github.com/pilgor1337goat432/dryftugytdutfyig/blob/main/logic.lua"
+local URL_LOGIC = "https://raw.githubusercontent.com/pilgor1337goat432/dryftugytdutfyig/refs/heads/main/logic.lua"
 local URL_UI = "https://github.com/pilgor1337goat432/dryftugytdutfyig/blob/main/ui.lua"
 
 loadScript(URL_LOGIC)
