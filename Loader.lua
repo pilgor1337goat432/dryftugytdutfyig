@@ -21,7 +21,7 @@ end
 
 -- КАЛтент админки
 local URL_LOGIC = "https://raw.githubusercontent.com/pilgor1337goat432/dryftugytdutfyig/refs/heads/main/logic.lua"
-local URL_UI = "https://github.com/pilgor1337goat432/dryftugytdutfyig/blob/main/ui.lua"
+local URL_UI = "https://raw.githubusercontent.com/pilgor1337goat432/dryftugytdutfyig/refs/heads/main/ui.lua"
 
 loadScript(URL_LOGIC)
 task.wait(0.1) -- безопастный интервал
